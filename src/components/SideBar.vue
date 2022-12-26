@@ -12,6 +12,7 @@ export default {
   <div class="container">
     <div class="menu">
       <div class="logo">
+        <img src="images/logo.svg" alt="">
 
       </div>
     </div>
@@ -40,6 +41,11 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
+
+      img {
+        width: 70%;
+        height: 70%;
+      }
     }
   }
 
