@@ -21,7 +21,7 @@ export default {
       ],
       playlist: [
         {
-          name: "Recently Played",
+          name: "90s",
           href: "#"
         },
         {
@@ -71,11 +71,15 @@ export default {
           PLAYLIST
         </div>
         <div class="createPlaylist">
-          <a href="" class="deco"> <span class="square"></span> <span class="text-big">Crea Playlist</span> </a>
+          <a href="" class="deco"> <span class="square"></span> <span class="text-big">Create Playlist</span> </a>
         </div>
         <div class="playlistNames">
           <div v-for="item in playlist" class="name">
-            {{ item.name }}
+            <a href="">
+              <span>
+                {{ item.name }}
+              </span>
+            </a>
 
           </div>
         </div>
@@ -83,6 +87,18 @@ export default {
       </div>
     </div>
     <div class="profile">
+      <div>
+        <a href="">
+          <img src="images/download.svg" class="download">
+          <span class="text-download">Install app</span>
+        </a>
+      </div>
+      <hr>
+      <div>
+        <a href=""><img src="images/profile.svg" class="profile">
+          <span class="name"> <strong>John Doe</strong> </span>
+        </a>
+      </div>
 
     </div>
 
@@ -99,10 +115,10 @@ export default {
   .menu {
     height: 800px;
     width: 100%;
-    background-color: red;
+    // background-color: red;
 
     .logo {
-      background-color: aquamarine;
+      // background-color: aquamarine;
       height: 80px;
       width: 100%;
       display: flex;
@@ -117,8 +133,9 @@ export default {
 
     .inner-menu {
       height: 150px;
+      margin-bottom: 10px;
       width: 100%;
-      background-color: aqua;
+      // background-color: aqua;
 
       .section {
         padding-left: 20px;
@@ -131,7 +148,7 @@ export default {
         a {
           text-decoration: none;
           color: #a9a9a9;
-          font-size: 18px;
+          font-size: 15px;
 
           .imgtag {
             height: 13%;
@@ -145,12 +162,24 @@ export default {
 
       }
 
+      .section:hover {
+        background-color: #323232;
+
+        a {
+          color: white;
+        }
+
+        .imgtag {
+          filter: brightness(0) invert(1);
+        }
+      }
+
     }
 
     .playlist {
       height: 400px;
       width: 100%;
-      background-color: blueviolet;
+      // background-color: blueviolet;
       overflow-y: auto;
 
       .title {
@@ -163,14 +192,14 @@ export default {
 
       .createPlaylist {
         padding-left: 20px;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
 
         .deco {
           text-decoration: none;
           color: #a9a9a9;
 
           .square {
-
+            margin-right: 5px;
             display: inline-block;
             width: 40px;
             height: 40px;
@@ -195,11 +224,17 @@ export default {
 
       .playlistNames {
         .name {
-          padding-left: 20px;
           margin-bottom: 10px;
-          font-size: 20px;
-          color: #a9a9a9;
+
+          a {
+            padding-left: 20px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            font-size: 17px;
+            color: #a9a9a9;
+          }
         }
+
       }
     }
   }
@@ -207,7 +242,50 @@ export default {
   .profile {
     height: calc(100% - 800px);
     width: 100%;
-    background-color: chartreuse;
+    // background-color: chartreuse;
+
+    a {
+      text-decoration: none;
+      color: #a9a9a9;
+    }
+
+    .download {
+      width: 8%;
+      vertical-align: middle;
+      margin-left: 10px;
+    }
+
+    .text-download {
+      color: #a9a9a9;
+      font-size: 17px;
+      margin-left: 5px;
+    }
+
+    hr {
+      width: 90%;
+      margin: 10px auto;
+      color: #414141;
+
+    }
+
+    .profile {
+      width: 10%;
+      background-color: gray;
+      object-fit: cover;
+      border-radius: 20px;
+      margin-left: 10px;
+      margin-right: 10px;
+      vertical-align: middle;
+
+    }
+
+    .name {
+      color: white;
+      font-size: 18px;
+
+    }
+
+
   }
 }
 </style>
