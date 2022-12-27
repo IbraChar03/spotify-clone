@@ -15,7 +15,7 @@ export default {
             <img src="images/sinister.jpeg" class="sinister">
             <div>
                 <div class="sinister-name"><strong>Sinister</strong> </div>
-                <div class="brano-name">Brano Nome</div>
+                <div class="brano-name">Song name</div>
 
             </div>
             <div>
