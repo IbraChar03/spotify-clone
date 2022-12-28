@@ -1,7 +1,14 @@
 <script>
+import { store } from "../store.js"
+import Track from './Track.vue'
 export default {
+    components: {
+        Track
+    },
     data() {
+
         return {
+            store,
             activeItem: 0,
             list: [
                 {
@@ -56,6 +63,13 @@ export default {
 
                     </li>
                 </ul>
+
+            </div>
+        </div>
+        <div class="top">
+            <div class="title">TOP TRACKS</div>
+            <div class="cards">
+                <Track v-for="item in store.arrayTracks" :info="item" />
 
             </div>
         </div>
@@ -115,6 +129,29 @@ export default {
                     }
                 }
             }
+        }
+    }
+
+    .top {
+        height: 350px;
+        width: 100%;
+        // background-color: red;
+
+        .title {
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .cards {
+            height: 310px;
+            // background-color: aqua;
+            width: 100%;
+            overflow: hidden;
+            overflow-x: auto;
+            display: flex;
+
         }
     }
 }

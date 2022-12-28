@@ -1,8 +1,9 @@
 <script>
+import { store } from "../store.js"
 export default {
     data() {
         return {
-
+            store
         }
     }
 }
@@ -14,7 +15,7 @@ export default {
         <div class="search">
             <a href=""> <font-awesome-icon icon="fa-solid fa-angle-left" class="mrg" /></a>
             <a href=""> <font-awesome-icon icon="fa-solid fa-angle-right" class="mrg" /></a>
-            <input type="text" placeholder="Search for Artists, Songs, or Podcasts">
+            <input type="text" placeholder="Search for Artists, Songs, or Podcasts" v-model="store.searchInput">
         </div>
         <div class="up">
             <a href=""><span class="upgrade">EFFETTUA L`UPGRADE</span></a>
