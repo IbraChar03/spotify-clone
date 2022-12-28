@@ -15,7 +15,8 @@ export default {
         <div class="search">
             <a href=""> <font-awesome-icon icon="fa-solid fa-angle-left" class="mrg" /></a>
             <a href=""> <font-awesome-icon icon="fa-solid fa-angle-right" class="mrg" /></a>
-            <input type="text" placeholder="Search for Artists, Songs, or Podcasts" v-model="store.searchInput">
+            <input type="text" placeholder="Search for Artists, Songs, or Podcasts" v-model="store.searchInput"
+                @keyup="$emit(`FunctionSearch`)">
         </div>
         <div class="up">
             <a href=""><span class="upgrade">EFFETTUA L`UPGRADE</span></a>

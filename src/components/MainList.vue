@@ -1,9 +1,11 @@
 <script>
 import { store } from "../store.js"
 import Track from './Track.vue'
+import Artist from './Artist.vue'
 export default {
     components: {
-        Track
+        Track,
+        Artist
     },
     data() {
 
@@ -66,10 +68,18 @@ export default {
 
             </div>
         </div>
-        <div class="top">
+        <div class="topTracks">
             <div class="title">TOP TRACKS</div>
             <div class="cards">
                 <Track v-for="item in store.arrayTracks" :info="item" />
+
+            </div>
+        </div>
+
+        <div class="topArtists">
+            <div class="title">TOP ARTISTS</div>
+            <div class="cards">
+                <Artist v-for="items in store.arrayArtists" :infos="items" />
 
             </div>
         </div>
@@ -80,6 +90,7 @@ export default {
 .cont {
     height: calc(100% - 80px);
     width: 100%;
+    overflow-y: auto;
 
     .cont-list {
         height: 80px;
@@ -88,6 +99,7 @@ export default {
         justify-content: center;
         // background-color: red;
         align-items: center;
+        margin-bottom: 20px;
 
         .listItem {
             width: 60%;
@@ -132,7 +144,7 @@ export default {
         }
     }
 
-    .top {
+    .topTracks {
         height: 350px;
         width: 100%;
         // background-color: red;
@@ -142,6 +154,32 @@ export default {
             font-weight: bold;
             font-size: 20px;
             margin-bottom: 10px;
+            margin-left: 15px;
+        }
+
+        .cards {
+            height: 310px;
+            // background-color: aqua;
+            width: 100%;
+            overflow: hidden;
+            overflow-x: auto;
+            display: flex;
+
+        }
+    }
+
+    .topArtists {
+        margin-top: 20px;
+        height: 350px;
+        width: 100%;
+        // background-color: red;
+
+        .title {
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 10px;
+            margin-left: 15px;
         }
 
         .cards {

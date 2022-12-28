@@ -32,9 +32,23 @@ export default {
                 });
 
         },
+        getApiArtists() {
+            let api = `${store.apiTopArists}&${store.apiKey}&format=json`
+            axios
+                .get(api)
+                .then(res => {
+                    store.arrayArtists = res.data.artists.artist
+
+                })
+                .catch(err => {
+                    console.log("errori", err)
+                });
+
+        },
     },
     mounted() {
         this.getApiTracks()
+        this.getApiArtists()
     }
 }
 </script>

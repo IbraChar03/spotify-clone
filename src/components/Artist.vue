@@ -1,7 +1,7 @@
 <script>
 export default {
     props: {
-        info: Object
+        infos: Object
     },
     data() {
         return {
@@ -19,11 +19,11 @@ export default {
             <img src="images/notfound.webp" alt="">
         </div>
         <div class="title">
-            <span>{{ info.name }}</span>
+            <span>{{ infos.name }}</span>
 
         </div>
         <div class="subtitle">
-            <span>{{ info.artist.name }}</span>
+            <span>Artist</span>
         </div>
     </div>
 
@@ -58,17 +58,10 @@ export default {
         height: 10%;
         margin-top: 10px;
         margin-bottom: 5px;
-        display: flex;
-        align-self: center;
-        align-items: center;
-        justify-content: flex-start;
 
         span {
             color: white;
             font-size: 15px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
         }
     }
 
