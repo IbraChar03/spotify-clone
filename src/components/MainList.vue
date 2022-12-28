@@ -91,6 +91,7 @@ export default {
     height: calc(100% - 80px);
     width: 100%;
     overflow-y: auto;
+    padding-left: 10px;
 
     .cont-list {
         height: 80px;
@@ -99,7 +100,7 @@ export default {
         justify-content: center;
         // background-color: red;
         align-items: center;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
 
         .listItem {
             width: 60%;
@@ -145,6 +146,7 @@ export default {
     }
 
     .topTracks {
+        margin-top: 20px;
         height: 350px;
         width: 100%;
         // background-color: red;
@@ -169,7 +171,7 @@ export default {
     }
 
     .topArtists {
-        margin-top: 20px;
+        margin-top: 40px;
         height: 350px;
         width: 100%;
         // background-color: red;

@@ -67,7 +67,7 @@ export default {
     background-color: #121212;
     width: calc(100% - 250px);
     height: calc(100vh - 80px);
-    padding-left: 20px;
+
 
 }
 </style>
