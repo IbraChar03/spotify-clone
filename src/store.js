@@ -8,4 +8,5 @@ export const store = reactive({
     arrayTopTracks: [],
     music: "",
     searchInput: "",
+    linkMp3: "",
 })
