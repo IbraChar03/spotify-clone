@@ -69,7 +69,7 @@ export default {
 
             </div>
         </div>
-        <div class="searchTracks">
+        <div class="searchTracks" v-if="store.searchInput !== ``">
 
             <div class="title">Tracks</div>
             <div class="cards">
@@ -78,7 +78,7 @@ export default {
             </div>
         </div>
 
-        <div class="topArtists">
+        <div class="topArtists" v-if="store.searchInput === ``">
 
             <div class="title">TOP ARTISTS</div>
             <div class="cards">
@@ -86,7 +86,7 @@ export default {
 
             </div>
         </div>
-        <div class="topTracks">
+        <div class="topTracks" v-if="store.searchInput === ``">
             <div class="title">TOP TRACKS</div>
             <div class="cards">
                 <TopTracks v-for="item in store.arrayTopTracks" :info="item" />
