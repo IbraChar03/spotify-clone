@@ -1,10 +1,11 @@
 import { reactive } from "vue"
 export const store = reactive({
-    apiTopTracks: "http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks",
-    apiTopArists: "http://ws.audioscrobbler.com/2.0/?method=chart.gettopartists",
-    apiKey: "api_key=ef2ef39365afcf57864b39c8a15c6cd4",
-    apiSearchTracks: "http://ws.audioscrobbler.com/2.0/?method=track.search&track=",
-    arrayTracks: [],
-    arrayArtists: [],
+    apiKey: "eea47d88e1mshb2397ce160dd292p1d9107jsnb28e91e0fb7b",
+    apiHost: "genius-song-lyrics1.p.rapidapi.com",
+    apiSearchTracks: "https://genius-song-lyrics1.p.rapidapi.com/search",
+    arrayTopArtists: [],
+    arraySearchSongs: [],
+    arrayTopTracks: [],
+    music: "",
     searchInput: "",
 })

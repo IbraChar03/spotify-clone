@@ -1,14 +1,26 @@
 <script>
+import { store } from "../store.js"
 export default {
     props: {
         info: Object
     },
     data() {
         return {
-
-
+            store,
         }
     },
+    methods: {
+        // play() {
+        //     var audio = document.getElementById("audio");
+        //     if (!audio.paused) { /* Check if it's not paused */
+        //         audio.pause();  /* To pause the audio */
+        //         audio.currentTime = 0;  /* To reset the time back to 0 */
+        //     }
+        //     else {
+        //         audio.play();  /* To make it play again */
+        //     }
+        // }
+    }
 
 }
 </script>
@@ -16,18 +28,20 @@ export default {
 <template>
     <div class="card">
         <div class="img">
-            <img src="images/notfound.webp" alt="">
+            <img alt="" :src="info.item.header_image_thumbnail_url">
+            <!-- <audio id="audio" :src="store.music"></audio> -->
+
         </div>
         <div class="title">
-            <span>{{ info.name }}</span>
+            <span>{{ info.item.full_title }}</span>
 
         </div>
         <div class="subtitle">
-            <span>{{ info.artist.name }}</span>
+            <span>{{ info.item.artist_names }}</span>
         </div>
     </div>
 
-</template>
+</template> 
 
 <style lang="scss" scoped>
 .card {
@@ -44,13 +58,22 @@ export default {
     .img {
         width: 100%;
         height: 65%;
-        background-color: red;
+        // background-color: red;
 
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            cursor: pointer;
         }
+
+        img[src=""] {
+            display: none;
+        }
+    }
+
+    .img img[src=""] {
+        display: none;
     }
 
     .title {

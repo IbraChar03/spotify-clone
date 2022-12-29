@@ -1,11 +1,13 @@
 <script>
 import { store } from "../store.js"
-import Track from './Track.vue'
-import Artist from './Artist.vue'
+import TopArtists from './TopArtists.vue'
+import TopTracks from './TopTracks.vue'
+import searchTracks from './searchTracks.vue'
 export default {
     components: {
-        Track,
-        Artist
+        TopArtists,
+        TopTracks,
+        searchTracks
     },
     data() {
 
@@ -45,7 +47,6 @@ export default {
         ActiveClick(index) {
             this.activeItem = index
 
-
         }
     }
 }
@@ -68,21 +69,32 @@ export default {
 
             </div>
         </div>
-        <div class="topTracks">
-            <div class="title">TOP TRACKS</div>
+        <div class="searchTracks">
+
+            <div class="title">Tracks</div>
             <div class="cards">
-                <Track v-for="item in store.arrayTracks" :info="item" />
+                <searchTracks v-for="item in store.arraySearchSongs" :info="item" />
 
             </div>
         </div>
 
         <div class="topArtists">
+
             <div class="title">TOP ARTISTS</div>
             <div class="cards">
-                <Artist v-for="items in store.arrayArtists" :infos="items" />
+                <TopArtists v-for="item in store.arrayTopArtists" :info="item" />
 
             </div>
         </div>
+        <div class="topTracks">
+            <div class="title">TOP TRACKS</div>
+            <div class="cards">
+                <TopTracks v-for="item in store.arrayTopTracks" :info="item" />
+
+            </div>
+        </div>
+
+
     </div>
 </template>
 
@@ -171,6 +183,31 @@ export default {
     }
 
     .topArtists {
+        margin-top: 40px;
+        height: 350px;
+        width: 100%;
+        // background-color: red;
+
+        .title {
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 10px;
+            margin-left: 15px;
+        }
+
+        .cards {
+            height: 310px;
+            // background-color: aqua;
+            width: 100%;
+            overflow: hidden;
+            overflow-x: auto;
+            display: flex;
+
+        }
+    }
+
+    .searchTracks {
         margin-top: 40px;
         height: 350px;
         width: 100%;
