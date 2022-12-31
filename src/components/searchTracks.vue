@@ -41,25 +41,15 @@ export default {
                 audio.play();  /* To make it play again */
             }
 
-        }
+        },
+
     },
 
 }
 </script>
 
 <template>
-    <!-- <div class="card">
-        <div class="img">
-            <img :src="info.result.header_image_url" alt="">
-        </div>
-        <div class="title">
-            <span>{{ info.result.full_title }}</span>
 
-        </div>
-        <div class="subtitle">
-            <span>{{ info.result.artist_names }}</span>
-        </div>
-    </div> -->
     <div class="card">
         <div class="img" @click="mp3()">
             <font-awesome-icon icon="fa-solid fa-circle-play" class="circle" />
@@ -153,10 +143,17 @@ export default {
     .subtitle {
         width: 100%;
         height: 10%;
+        display: flex;
+        align-self: center;
+        align-items: center;
+        justify-content: flex-start;
 
         span {
             color: #a7a7a7;
             font-size: 13px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
     }
 }

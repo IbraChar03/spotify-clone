@@ -34,21 +34,7 @@ export default {
 
         },
         getApiTrackSearch() {
-            // const options = {
-            //     method: 'GET',
-            //     url: 'https:genius-song-lyrics1.p.rapidapi.com/search',
-            //     params: { q: `${store.searchInput}`, per_page: '15', page: '1' },
-            //     headers: {
-            //         'X-RapidAPI-Key': `${store.apiKey}`,
-            //         'X-RapidAPI-Host': `${store.apiHost}`
-            //     }
-            // };
 
-            // axios.request(options).then(function (res) {
-            //     store.arraySearchSongs = res.data.response.hits
-            // }).catch(function (error) {
-            //     console.error(error);
-            // });
             const options = {
                 method: 'GET',
                 url: 'https://youtube-music1.p.rapidapi.com/v2/search',
@@ -120,7 +106,7 @@ export default {
 </script>
 
 <template>
-    <div class="container">
+    <div class="container-main">
         <HeaderMain @FunctionSearch="getApiTrackSearch" />
         <MainList />
 
@@ -129,11 +115,18 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.container {
+.container-main {
     background-color: #121212;
     width: calc(100% - 250px);
     height: calc(100vh - 80px);
 
 
+}
+
+@media screen and (max-width:580px) {
+    .container-main {
+        width: calc(100% - 80px);
+
+    }
 }
 </style>
