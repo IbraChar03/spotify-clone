@@ -3,10 +3,12 @@ import { store } from "../store.js"
 import TopArtists from './TopArtists.vue'
 import TopTracks from './TopTracks.vue'
 import searchTracks from './searchTracks.vue'
+import TopAlbums from './TopAlbums.vue'
 export default {
     components: {
         TopArtists,
         TopTracks,
+        TopAlbums,
         searchTracks
     },
     data() {
@@ -90,6 +92,13 @@ export default {
             <div class="title">TOP TRACKS</div>
             <div class="cards">
                 <TopTracks v-for="item in store.arrayTopTracks" :info="item" />
+
+            </div>
+        </div>
+        <div class="topAlbums" v-if="store.searchInput === ``">
+            <div class="title">TOP ALBUMS</div>
+            <div class="cards">
+                <TopAlbums v-for="item in store.arrayTopAlbums" :info="item" />
 
             </div>
         </div>
@@ -182,6 +191,31 @@ export default {
         }
     }
 
+    .topAlbums {
+        margin-top: 20px;
+        height: 350px;
+        width: 100%;
+        // background-color: red;
+
+        .title {
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 10px;
+            margin-left: 15px;
+        }
+
+        .cards {
+            height: 310px;
+            // background-color: aqua;
+            width: 100%;
+            overflow: hidden;
+            overflow-x: auto;
+            display: flex;
+
+        }
+    }
+
     .topArtists {
         margin-top: 40px;
         height: 350px;
@@ -231,5 +265,23 @@ export default {
 
         }
     }
+}
+
+@media screen and (max-width:580px) {
+    .cont-list {
+        display: block;
+
+        .listItem {
+            height: 100%;
+            min-width: 100%;
+
+            ul {
+                width: 100%;
+                flex-wrap: wrap;
+            }
+
+        }
+    }
+
 }
 </style>

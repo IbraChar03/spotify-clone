@@ -244,4 +244,27 @@ export default {
         margin-right: 20px;
     }
 }
+
+@media screen and (max-width:580px) {
+    .container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        .brano {
+            display: none;
+        }
+
+        .player {
+            width: 60%;
+        }
+
+        .audio {
+            .line3 {
+                display: none;
+            }
+        }
+    }
+
+}
 </style>

@@ -18,7 +18,7 @@ export default {
         getApiTopArtists() {
             const options = {
                 method: 'GET',
-                url: 'https://genius-song-lyrics1.p.rapidapi.com/artists/chart',
+                url: 'https://genius-song-lyrics1.p.rapidapi.com/chart/artists/',
                 params: { time_period: 'all_time', per_page: '15', page: '1' },
                 headers: {
                     'X-RapidAPI-Key': `${store.apiKey}`,
@@ -27,7 +27,7 @@ export default {
             };
 
             axios.request(options).then(function (res) {
-                store.arrayTopArtists = res.data.response.chart_items
+                store.arrayTopArtists = res.data.chart_items
             }).catch(function (error) {
                 console.error(error);
             });
@@ -56,7 +56,7 @@ export default {
         getApiTopTracks() {
             const options = {
                 method: 'GET',
-                url: 'https://genius-song-lyrics1.p.rapidapi.com/songs/chart',
+                url: 'https://genius-song-lyrics1.p.rapidapi.com/chart/songs/',
                 params: { time_period: 'all_time', chart_genre: 'all', per_page: '15', page: '1' },
                 headers: {
                     'X-RapidAPI-Key': `${store.apiKey}`,
@@ -65,12 +65,29 @@ export default {
             };
 
             axios.request(options).then(function (res) {
+                store.arrayTopTracks = res.data.chart_items
 
-                store.arrayTopTracks = res.data.response.chart_items
             }).catch(function (error) {
                 console.error(error);
             });
 
+        },
+        getApiTopAlbums() {
+            const options = {
+                method: 'GET',
+                url: 'https://genius-song-lyrics1.p.rapidapi.com/chart/albums/',
+                params: { time_period: 'all_time', per_page: '15', page: '1' },
+                headers: {
+                    'X-RapidAPI-Key': `${store.apiKey}`,
+                    'X-RapidAPI-Host': 'genius-song-lyrics1.p.rapidapi.com'
+                }
+            };
+
+            axios.request(options).then(function (res) {
+                store.arrayTopAlbums = res.data.chart_items
+            }).catch(function (error) {
+                console.error(error);
+            });
         },
         converterMp3() {
             const options = {
@@ -101,6 +118,7 @@ export default {
         this.getApiTopTracks()
         // this.converterMp3()
         this.getApiTrackSearch()
+        this.getApiTopAlbums()
     }
 }
 </script>

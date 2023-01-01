@@ -6,6 +6,7 @@ export const store = reactive({
     arrayTopArtists: [],
     arraySearchSongs: [],
     arrayTopTracks: [],
+    arrayTopAlbums: [],
     searchInput: "",
     linkMp3: "",
 })

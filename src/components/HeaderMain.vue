@@ -85,4 +85,14 @@ export default {
     }
 
 }
+
+@media screen and (max-width:580px) {
+    .mrg {
+        display: none;
+    }
+
+    .up {
+        display: none;
+    }
+}
 </style>
