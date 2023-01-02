@@ -157,6 +157,7 @@ export default {
     .minute {
         color: white;
         font-size: 17px;
+
     }
 
     .line1 {

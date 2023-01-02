@@ -5,6 +5,7 @@ export const store = reactive({
     apiSearchTracks: "https://genius-song-lyrics1.p.rapidapi.com/search",
     arrayTopArtists: [],
     arraySearchSongs: [],
+    arraySearchAlbums: [],
     arrayTopTracks: [],
     arrayTopAlbums: [],
     searchInput: "",

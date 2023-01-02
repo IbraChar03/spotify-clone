@@ -3,13 +3,15 @@ import { store } from "../store.js"
 import TopArtists from './TopArtists.vue'
 import TopTracks from './TopTracks.vue'
 import searchTracks from './searchTracks.vue'
+import searchAlbums from './searchAlbums.vue'
 import TopAlbums from './TopAlbums.vue'
 export default {
     components: {
         TopArtists,
         TopTracks,
         TopAlbums,
-        searchTracks
+        searchTracks,
+        searchAlbums
     },
     data() {
 
@@ -62,7 +64,7 @@ export default {
 
 <template>
     <div class="cont">
-        <div class="cont-list">
+        <div class="cont-list" v-if="store.searchInput === ``">
             <div class="title">
                 <span>Shortcuts</span>
             </div>
@@ -82,7 +84,7 @@ export default {
 
             </div>
         </div>
-        <div class="searchTracks" v-if="store.searchInput !== ``">
+        <div class="search" v-if="store.searchInput !== ``">
 
             <div class="title">Tracks</div>
             <div class="cards">
@@ -91,7 +93,16 @@ export default {
             </div>
         </div>
 
-        <div class="topArtists" v-if="store.searchInput === ``">
+        <div class="search" v-if="store.searchInput !== ``">
+
+            <div class="title">Albums</div>
+            <div class="cards">
+                <searchAlbums v-for="item in store.arraySearchAlbums" :info="item" />
+
+            </div>
+        </div>
+
+        <div class="top" v-if="store.searchInput === ``">
 
             <div class="title">TOP ARTISTS</div>
             <div class="cards">
@@ -99,14 +110,14 @@ export default {
 
             </div>
         </div>
-        <div class="topTracks" v-if="store.searchInput === ``">
+        <div class="top" v-if="store.searchInput === ``">
             <div class="title">TOP TRACKS</div>
             <div class="cards">
                 <TopTracks v-for="item in store.arrayTopTracks" :info="item" />
 
             </div>
         </div>
-        <div class="topAlbums" v-if="store.searchInput === ``">
+        <div class="top" v-if="store.searchInput === ``">
             <div class="title">TOP ALBUMS</div>
             <div class="cards">
                 <TopAlbums v-for="item in store.arrayTopAlbums" :info="item" />
@@ -234,8 +245,8 @@ export default {
         }
     }
 
-    .topTracks {
-        margin-top: 20px;
+    .top {
+        margin-top: 30px;
         height: 350px;
         width: 100%;
         // background-color: red;
@@ -243,7 +254,7 @@ export default {
         .title {
             color: white;
             font-weight: bold;
-            font-size: 20px;
+            font-size: 25px;
             margin-bottom: 10px;
             margin-left: 15px;
         }
@@ -259,32 +270,7 @@ export default {
         }
     }
 
-    .topAlbums {
-        margin-top: 20px;
-        height: 350px;
-        width: 100%;
-        // background-color: red;
-
-        .title {
-            color: white;
-            font-weight: bold;
-            font-size: 20px;
-            margin-bottom: 10px;
-            margin-left: 15px;
-        }
-
-        .cards {
-            height: 310px;
-            // background-color: aqua;
-            width: 100%;
-            overflow: hidden;
-            overflow-x: auto;
-            display: flex;
-
-        }
-    }
-
-    .topArtists {
+    .search {
         margin-top: 40px;
         height: 350px;
         width: 100%;
@@ -293,32 +279,7 @@ export default {
         .title {
             color: white;
             font-weight: bold;
-            font-size: 20px;
-            margin-bottom: 10px;
-            margin-left: 15px;
-        }
-
-        .cards {
-            height: 310px;
-            // background-color: aqua;
-            width: 100%;
-            overflow: hidden;
-            overflow-x: auto;
-            display: flex;
-
-        }
-    }
-
-    .searchTracks {
-        margin-top: 40px;
-        height: 350px;
-        width: 100%;
-        // background-color: red;
-
-        .title {
-            color: white;
-            font-weight: bold;
-            font-size: 20px;
+            font-size: 25px;
             margin-bottom: 10px;
             margin-left: 15px;
         }

@@ -52,6 +52,25 @@ export default {
             });
 
         },
+        getApiAlbumSearch() {
+
+            const options = {
+                method: 'GET',
+                url: 'https://spotify23.p.rapidapi.com/search/',
+                params: { q: `${store.searchInput}`, type: 'albums', offset: '0', limit: '10', numberOfTopResults: '5' },
+                headers: {
+                    'X-RapidAPI-Key': 'eea47d88e1mshb2397ce160dd292p1d9107jsnb28e91e0fb7b',
+                    'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+                }
+            };
+
+            axios.request(options).then(function (res) {
+                store.arraySearchAlbums = res.data.albums.items
+            }).catch(function (error) {
+                console.error(error);
+            });
+
+        },
 
         getApiTopTracks() {
             const options = {
@@ -110,14 +129,17 @@ export default {
             }).catch(function (error) {
                 console.error(error);
             });
+        },
+        search() {
+            this.getApiTrackSearch()
+            this.getApiAlbumSearch()
         }
 
     },
     mounted() {
+        this.search()
         this.getApiTopArtists()
         this.getApiTopTracks()
-        // this.converterMp3()
-        this.getApiTrackSearch()
         this.getApiTopAlbums()
     }
 }
@@ -125,7 +147,7 @@ export default {
 
 <template>
     <div class="container-main">
-        <HeaderMain @FunctionSearch="getApiTrackSearch" />
+        <HeaderMain @FunctionSearch="search" />
         <MainList />
 
     </div>
