@@ -64,20 +64,28 @@ export default {
 
         span {
             color: white;
-            font-size: 15px;
+            font-size: 17px;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            font-weight: bold;
         }
     }
 
     .subtitle {
         width: 100%;
         height: 10%;
+        display: flex;
+        align-self: center;
+        align-items: center;
+        justify-content: flex-start;
 
         span {
             color: #a7a7a7;
             font-size: 13px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
     }
 }

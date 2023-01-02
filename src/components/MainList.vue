@@ -18,27 +18,33 @@ export default {
             activeItem: 0,
             list: [
                 {
-                    name: "IN EVIDENZA",
+                    name: "Daily Mix 1",
+                    img: "/images/dailymix1.png",
                     href: "#",
                 },
                 {
-                    name: "PODCAST",
+                    name: "Chill",
+                    img: "/images/chill.jpg",
                     href: "#",
                 },
                 {
-                    name: "CLASSIFICHE",
+                    name: "Release Radar",
+                    img: "/images/releaseradar.jpg",
                     href: "#",
                 },
                 {
-                    name: "GENERI E MOOD",
+                    name: "Daily Mix 2",
+                    img: "/images/dailymix2.png",
                     href: "#",
                 },
                 {
-                    name: "NUOVE USCITE",
+                    name: "Global Top 50",
+                    img: "/images/top50global.jpg",
                     href: "#",
                 },
                 {
-                    name: "SCOPRI",
+                    name: "Top Hits",
+                    img: "/images/tophits.png",
                     href: "#",
                 },
             ]
@@ -57,17 +63,22 @@ export default {
 <template>
     <div class="cont">
         <div class="cont-list">
+            <div class="title">
+                <span>Shortcuts</span>
+            </div>
 
             <div class="listItem">
+                <div class="section" v-for="item in list">
+                    <a :href="item.href">
 
-                <ul>
-                    <li v-for="(item, index) in list" :key="index">
-                        <a :href="item.href" @click="ActiveClick(index)" :class="activeItem === index ? `active` : ``">
-                            {{ item.name }}
-                        </a>
-
-                    </li>
-                </ul>
+                        <div class="img">
+                            <img :src="item.img" alt="">
+                        </div>
+                        <div class="text">
+                            <span> {{ item.name }} </span>
+                        </div>
+                    </a>
+                </div>
 
             </div>
         </div>
@@ -103,7 +114,6 @@ export default {
             </div>
         </div>
 
-
     </div>
 </template>
 
@@ -112,22 +122,80 @@ export default {
     height: calc(100% - 80px);
     width: 100%;
     overflow-y: auto;
+    overflow-x: hidden;
     padding-left: 10px;
 
     .cont-list {
-        height: 80px;
+        // height: 200px;
         width: 100%;
-        display: flex;
+        // display: flex;
         justify-content: center;
         // background-color: red;
         align-items: center;
         margin-bottom: 10px;
+        margin-top: 10px;
+
+        .title {
+            height: 80px;
+            width: 100%;
+            // background-color: red;
+            display: flex;
+            align-items: center;
+            margin-left: 22px;
+
+            span {
+                color: white;
+                font-weight: bold;
+                font-size: 30px;
+            }
+        }
 
         .listItem {
-            width: 60%;
+            width: 100%;
             height: 100%;
+            margin-left: 15px;
+
             // background-color: aquamarine;
             display: flex;
+            flex-wrap: wrap;
+
+            .section {
+                height: 80px;
+                width: calc(100% / 3 - 20px);
+                margin: 10px;
+                background-color: #2c2c2c;
+
+
+                a {
+                    height: 100%;
+                    width: 100%;
+                    display: flex;
+                    text-decoration: none;
+
+                    .img {
+                        width: 15%;
+                        height: 100%;
+                        background-color: aqua;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+
+                    .text {
+                        width: 85%;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        margin-left: 20px;
+                        color: white;
+                        font-size: 17px;
+                        font-weight: bold;
+                    }
+                }
+            }
 
             ul {
                 width: 100%;

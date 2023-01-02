@@ -95,4 +95,16 @@ export default {
         display: none;
     }
 }
+
+@media screen and (max-width:400px) {
+    .header {
+        max-width: 100%;
+
+        .search {
+            input {
+                width: 100%;
+            }
+        }
+    }
+}
 </style>

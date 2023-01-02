@@ -33,6 +33,7 @@ export default {
         play() {
 
             var audio = document.getElementById("audio");
+
             if (!audio.paused) { /* Check if it's not paused */
                 audio.pause();  /* To pause the audio */
                 audio.currentTime = 0;  /* To reset the time back to 0 */
@@ -51,10 +52,11 @@ export default {
 <template>
 
     <div class="card">
-        <div class="img" @click="mp3()">
+        <div class="img" @click="mp3()" role="button">
             <font-awesome-icon icon="fa-solid fa-circle-play" class="circle" />
             <img :src="info.thumbnail" alt="" onerror="this.src='/images/notfound.webp';" @click="play()">
             <audio id=audio :src="store.linkMp3" type="audio/mpeg"></audio>
+
 
         </div>
         <div class="title">
@@ -84,6 +86,8 @@ export default {
         width: 100%;
         height: 65%;
         position: relative;
+        cursor: pointer;
+        touch-action: manipulation;
 
         .circle {
             font-size: 60px;
@@ -100,6 +104,8 @@ export default {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            cursor: pointer;
+            touch-action: manipulation;
         }
 
         audio {

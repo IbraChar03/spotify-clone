@@ -256,10 +256,19 @@ export default {
         }
 
         .player {
-            width: 60%;
+            width: 100%;
+
+            .player2 {
+                .minute {
+                    margin-right: 10px;
+                    margin-left: 10px;
+                }
+            }
         }
 
         .audio {
+            display: none;
+
             .line3 {
                 display: none;
             }
@@ -267,4 +276,6 @@ export default {
     }
 
 }
+
+@media screen and (max-width:400px) {}
 </style>

@@ -161,7 +161,7 @@ export default {
   height: calc(100vh - 80px);
 
   .menu {
-    height: 800px;
+    height: calc(100% - 80px);
     width: 100%;
     // background-color: red;
 
@@ -197,6 +197,7 @@ export default {
           text-decoration: none;
           color: #a9a9a9;
           font-size: 15px;
+          font-weight: bold;
 
           .imgtag {
             height: 13%;
@@ -295,6 +296,7 @@ export default {
     a {
       text-decoration: none;
       color: #a9a9a9;
+      font-weight: bold;
     }
 
     .download {
