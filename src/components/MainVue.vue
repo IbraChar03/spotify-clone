@@ -40,7 +40,7 @@ export default {
                 url: 'https://youtube-music1.p.rapidapi.com/v2/search',
                 params: { query: `${store.searchInput}` },
                 headers: {
-                    'X-RapidAPI-Key': 'eea47d88e1mshb2397ce160dd292p1d9107jsnb28e91e0fb7b',
+                    'X-RapidAPI-Key': `${store.apiKey}`,
                     'X-RapidAPI-Host': 'youtube-music1.p.rapidapi.com'
                 }
             };
@@ -59,7 +59,7 @@ export default {
                 url: 'https://spotify23.p.rapidapi.com/search/',
                 params: { q: `${store.searchInput}`, type: 'albums', offset: '0', limit: '10', numberOfTopResults: '5' },
                 headers: {
-                    'X-RapidAPI-Key': 'eea47d88e1mshb2397ce160dd292p1d9107jsnb28e91e0fb7b',
+                    'X-RapidAPI-Key': `${store.apiKey}`,
                     'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
                 }
             };
@@ -70,6 +70,29 @@ export default {
                 console.error(error);
             });
 
+        },
+        getApiArtistSearch() {
+            const options = {
+                method: 'GET',
+                url: 'https://spotify23.p.rapidapi.com/search/',
+                params: {
+                    q: `${store.searchInput}`,
+                    type: 'artists',
+                    offset: '0',
+                    limit: '10',
+                    numberOfTopResults: '5'
+                },
+                headers: {
+                    'X-RapidAPI-Key': 'eea47d88e1mshb2397ce160dd292p1d9107jsnb28e91e0fb7b',
+                    'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+                }
+            };
+
+            axios.request(options).then(function (res) {
+                store.arraySearchArtists = res.data.artists.items
+            }).catch(function (error) {
+                console.error(error);
+            });
         },
 
         getApiTopTracks() {
@@ -133,6 +156,7 @@ export default {
         search() {
             this.getApiTrackSearch()
             this.getApiAlbumSearch()
+            this.getApiArtistSearch()
         }
 
     },
@@ -141,6 +165,7 @@ export default {
         this.getApiTopArtists()
         this.getApiTopTracks()
         this.getApiTopAlbums()
+
     }
 }
 </script>

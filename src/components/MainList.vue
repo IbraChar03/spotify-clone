@@ -4,6 +4,7 @@ import TopArtists from './TopArtists.vue'
 import TopTracks from './TopTracks.vue'
 import searchTracks from './searchTracks.vue'
 import searchAlbums from './searchAlbums.vue'
+import searchArtists from './searchArtists.vue'
 import TopAlbums from './TopAlbums.vue'
 export default {
     components: {
@@ -11,6 +12,7 @@ export default {
         TopTracks,
         TopAlbums,
         searchTracks,
+        searchArtists,
         searchAlbums
     },
     data() {
@@ -84,6 +86,7 @@ export default {
 
             </div>
         </div>
+
         <div class="search" v-if="store.searchInput !== ``">
 
             <div class="title">Tracks</div>
@@ -98,6 +101,14 @@ export default {
             <div class="title">Albums</div>
             <div class="cards">
                 <searchAlbums v-for="item in store.arraySearchAlbums" :info="item" />
+
+            </div>
+        </div>
+        <div class="search" v-if="store.searchInput !== ``">
+
+            <div class="title">Artists</div>
+            <div class="cards">
+                <searchArtists v-for="item in store.arraySearchArtists" :info="item" />
 
             </div>
         </div>

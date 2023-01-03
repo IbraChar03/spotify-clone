@@ -1,14 +1,10 @@
 <script>
-import { store } from "../store.js"
+
 export default {
     props: {
         info: Object
     },
-    data() {
-        return {
-            store,
-        }
-    },
+
 
 }
 </script>
@@ -16,20 +12,20 @@ export default {
 <template>
 
     <div class="card">
-        <div class="img">
-            <img alt="" :src="info.item.header_image_thumbnail_url">
+        <div class="img" v-for="items in info.data.visuals.avatarImage.sources.slice(0, 1)">
+            <img :src="items.url" alt="" onerror="this.src='/images/notfound.webp';">
 
         </div>
         <div class="title">
-            <span>{{ info.item.full_title }}</span>
+            <span>{{ info.data.profile.name }}</span>
 
         </div>
         <div class="subtitle">
-            <span>{{ info.item.artist_names }}</span>
+            <span>Artist</span>
         </div>
     </div>
 
-</template> 
+</template>
 
 <style lang="scss" scoped>
 .card {
@@ -46,23 +42,22 @@ export default {
     .img {
         width: 100%;
         height: 65%;
-        // background-color: red;
+        position: relative;
+        cursor: pointer;
+        touch-action: manipulation;
+
 
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             cursor: pointer;
+            touch-action: manipulation;
         }
 
-        img[src=""] {
-            display: none;
-        }
+
     }
 
-    .img img[src=""] {
-        display: none;
-    }
 
     .title {
         width: 100%;
@@ -87,10 +82,17 @@ export default {
     .subtitle {
         width: 100%;
         height: 10%;
+        display: flex;
+        align-self: center;
+        align-items: center;
+        justify-content: flex-start;
 
         span {
             color: #a7a7a7;
             font-size: 13px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
     }
 }
